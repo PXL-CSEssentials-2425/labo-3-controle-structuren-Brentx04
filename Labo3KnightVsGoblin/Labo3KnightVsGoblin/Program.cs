@@ -33,10 +33,15 @@ else
 }
 Random RandomNumberGenerator = new Random();
 int goblinHealth = RandomNumberGenerator.Next(1, 101);
-Console.WriteLine("What is the health of the knight?");
-Console.WriteLine("What is the health of the Goblin?");
 
-    Console.WriteLine($"Knight Health: {knightHealth}");
+    
+        Console.WriteLine("What is the health of the knight?");
+    Console.WriteLine("What is the health of the Goblin?");
+
+    //for (int attempt = 1; attempt < 4; attempt++)
+    do
+{
+        Console.WriteLine($"Knight Health: {knightHealth}");
     Console.WriteLine($"Goblin Health: {goblinHealth}");
     Console.WriteLine();
 
@@ -46,44 +51,43 @@ Console.WriteLine("What is the health of the Goblin?");
     Console.WriteLine("Please select a action: ");
     string action = Console.ReadLine();
 
-int knightAttack = 10;
-int goblinAttack = 5;
-    
-switch(action)
+    int knightAttack = 10;
+    int goblinAttack = 5;
+
+    switch (action)
     {
         case "1":
-        goblinHealth -= knightAttack;
-        Console.ForegroundColor = ConsoleColor.Red;
-        Console.WriteLine("You attacked the Goblin");
-        Console.ResetColor();
+            goblinHealth -= knightAttack;
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("You attacked the Goblin");
+            Console.ResetColor();
             break;
-            case "2":
-        knightHealth += 10;
-        Console.ForegroundColor = ConsoleColor.Green;
-        Console.WriteLine("You healed yourself 10 healthpoints");
-        Console.ResetColor();
+        case "2":
+            knightHealth += 10;
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("You healed yourself 10 healthpoints");
+            Console.ResetColor();
             break;
         default:
-        Console.ForegroundColor = ConsoleColor.DarkBlue;
-        Console.WriteLine("Dit is geen geldige actie!");
-        Console.ResetColor();
+            Console.ForegroundColor = ConsoleColor.DarkBlue;
+            Console.WriteLine("Dit is geen geldige actie!");
+            Console.ResetColor();
             break;
     }
 
-if (knightHealth <= 0)
-{
-    Console.ForegroundColor = ConsoleColor.Red;
-    Console.Write("De speler is gestorven!");
-    Console.ResetColor();
-}
-if (goblinHealth <= 0)
-{
-    Console.ForegroundColor = ConsoleColor.Green;
-    Console.Write("De goblin is gestorven!");
-    Console.ResetColor();
-}
-
-
+    if (knightHealth <= 0)
+    {
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.Write("De speler is gestorven!");
+        Console.ResetColor();
+    }
+    if (goblinHealth <= 0)
+    {
+        Console.ForegroundColor = ConsoleColor.Green;
+        Console.Write("De goblin is gestorven!");
+        Console.ResetColor();
+    }
+} while (goblinHealth > 0);
     
 
 /* 
